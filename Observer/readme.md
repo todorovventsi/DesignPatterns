@@ -14,7 +14,7 @@
 > stockInfo -> publisher state, object {ticker, price}\
 > .subscribe() -> adds observer to the register\
 > .unsubscribe() -> remove observer to the register\
-> .notifyObserver() -> loops through the subscribed observers and call their update() method, sending the new \state
+> .notifyObserver() -> loops through the subscribed observers and call their update() method, sending the new state\
 > .updatePrice() -> used to simulate change in state
 
 ---
