@@ -8,6 +8,7 @@ const publisherWBA = new PriceActionPublisher({ ticker: "WBA", price: 27 });
 const ventsi = new User("Ventsi");
 const john = new User("John");
 
+//PLAYGROUND
 ventsi.buyStock("RIO", 10, publisherRIO);
 ventsi.buyStock("INTL", 10, publisherINTL);
 ventsi.sellStock("RIO", 1, publisherINTL);
