@@ -12,7 +12,7 @@ export class PriceActionPublisher {
 		this.register = this.register.filter((o) => o !== observer);
 	}
 
-	notifyUser() {
+	notifyObserver() {
 		this.register.forEach((observer) => {
 			observer.update(this);
 		});
@@ -20,6 +20,6 @@ export class PriceActionPublisher {
 
 	updatePrice(change) {
 		this.stockInfo.price = change;
-		this.notifyUser();
+		this.notifyObserver();
 	}
 }
