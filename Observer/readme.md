@@ -43,5 +43,5 @@
 
 ### Newsletter class
 
-> Prints a message to the console with the updated price
+> Prints a message to the console with the updated price\
 > .followTickers(tickers) -> accepts array of publisher instances and subscribe to each of them
