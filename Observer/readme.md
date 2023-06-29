@@ -38,3 +38,10 @@
 
 > Stores information about number of shares user owns and its price
 > .getTotalSharesValue() -> getter, returns total value of the shares from a company user owns
+
+---
+
+### Newsletter class
+
+> Prints a message to the console with the updated price
+> .followTickers(tickers) -> accepts array of publisher instances and subscribe to each of them

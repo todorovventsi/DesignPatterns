@@ -7,19 +7,22 @@ export class User {
 	}
 
 	update(publisher) {
-		const ticker = publisher.stockInfo.ticker;
+		const { ticker, price } = publisher.stockInfo;
 		const oldPrice = this.portfolio[ticker].price;
-		const newPrice = publisher.stockInfo.price;
 
-		this.portfolio[ticker].price = newPrice;
+		this.portfolio[ticker].price = price;
 
-		if (newPrice > oldPrice) {
-			this.sellStock(publisher.ticker, 1, publisher);
-			console.log(`${this.name} sold 1 share of ${publisher.ticker}`);
+		if (price > oldPrice) {
+			this.sellStock(publisher.stockInfo.ticker, 1, publisher);
+			console.log(
+				`${this.name} sold 1 share of ${publisher.stockInfo.ticker}`
+			);
 		}
-		if (newPrice < oldPrice) {
-			this.buyStock(publisher.ticker, 1, publisher);
-			console.log(`${this.name} bought 1 share of ${publisher.ticker}`);
+		if (price < oldPrice) {
+			this.buyStock(publisher.stockInfo.ticker, 1, publisher);
+			console.log(
+				`${this.name} bought 1 share of ${publisher.stockInfo.ticker}`
+			);
 		}
 	}
 
@@ -33,7 +36,7 @@ export class User {
 			publisher.subscribe(this);
 			return;
 		}
-		this.portfolio[ticker] += numberOfShares;
+		this.portfolio[ticker].numberOfShares += numberOfShares;
 	}
 
 	sellStock(ticker, numberOfShares, publisher) {
@@ -44,6 +47,9 @@ export class User {
 		this.portfolio[ticker].numberOfShares -= numberOfShares;
 
 		// Unsubscribe if the user doesn't own this share after the sell
-		publisher.unsubscribe(this);
+		if (this.portfolio[ticker].numberOfShares == 0) {
+			publisher.unsubscribe(this);
+			delete this.portfolio[ticker];
+		}
 	}
 }
