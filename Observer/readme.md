@@ -3,7 +3,7 @@
 ## Description
 
 > Simulated app for financial markets data interaction (change in stock price)\
-> Observation pattern is impimented via "PriceActionPublisher" class and its "observers"\
+> Observation pattern is impemented via "PriceActionPublisher" class and its "observers"\
 > The purpuse of the "publisher" it to store information of its own state, the subscribed observers and to signal them when a change in state occurs. Observers on the other hand reacts to this changes.
 
 ---
